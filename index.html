@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b09">
+<meta name="description" content="Hadhin — Computer Science student, curious builder, traveler and foodie.">
+<title>Hadhin — Portfolio</title>
+<style>
+:root{--bg:#080b09;--surface:#101612;--surface-2:#151d17;--text:#f3f6ef;--muted:#9aa69b;--line:rgba(234,245,232,.11);--lime:#c5f36b;--lime-dark:#9ecb4d;--max:1160px;--nav-h:76px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 18px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.13;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(to bottom,black,transparent 78%)}
+a{color:inherit;text-decoration:none}button{font:inherit}button:focus-visible,a:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+.container{width:min(var(--max),calc(100% - 44px));margin:auto}.site-header{height:var(--nav-h);position:sticky;top:0;z-index:50;background:rgba(8,11,9,.84);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:900;font-size:1.42rem;letter-spacing:-.075em}.logo span{color:var(--lime)}
+.nav-links{display:flex;align-items:center;gap:28px}.nav-links a{font-size:.86rem;color:#aeb9af;transition:color .2s;position:relative}.nav-links a:hover,.nav-links a.active{color:var(--lime)}
+.nav-links a.active:after{content:"";height:2px;position:absolute;left:0;right:0;bottom:-9px;background:var(--lime);border-radius:5px}
+.nav-contact,.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:12px 19px;font-size:.88rem;font-weight:760;transition:transform .2s,background .2s,border-color .2s}
+.nav-contact,.btn-primary{background:var(--lime);color:#11170c}.nav-contact:hover,.btn-primary:hover{background:#d6ff8a;transform:translateY(-2px)}
+.menu-toggle{display:none;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:12px;padding:9px 12px}
+.hero{min-height:calc(100svh - var(--nav-h));display:flex;align-items:center;padding:82px 0 90px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:650px;height:650px;right:-230px;top:-220px;background:radial-gradient(circle,rgba(177,232,93,.13),transparent 67%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;position:relative;z-index:1}
+.eyebrow,.section-kicker{display:inline-flex;align-items:center;gap:10px;color:var(--lime);font-size:.74rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}
+.pulse{width:8px;height:8px;background:var(--lime);border-radius:50%;box-shadow:0 0 0 5px rgba(197,243,107,.1),0 0 18px var(--lime)}
+h1{font-size:clamp(4.3rem,9vw,8rem);line-height:.88;letter-spacing:-.095em;margin:25px 0 25px;font-weight:900}h1 .accent{color:var(--lime)}
+.hero-lead{font-size:clamp(1rem,1.6vw,1.18rem);color:#aeb9af;max-width:610px;line-height:1.8}.hero-lead strong{color:var(--text);font-weight:700}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}.btn-outline{border:1px solid var(--line);background:rgba(255,255,255,.025);color:var(--text)}.btn-outline:hover{border-color:var(--lime);color:var(--lime);transform:translateY(-2px)}
+.hero-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:48px}.meta-item{border-left:1px solid rgba(197,243,107,.45);padding-left:12px;color:var(--muted);font-size:.78rem}.meta-item b{display:block;color:var(--text);font-size:1.05rem}
+.visual-card{max-width:450px;justify-self:end;width:100%;border:1px solid rgba(197,243,107,.22);background:linear-gradient(145deg,#172019,#0d120e 70%);border-radius:30px;padding:18px;box-shadow:0 30px 100px rgba(0,0,0,.38);transform:rotate(1.5deg)}
+.visual-top{display:flex;justify-content:space-between;color:#849187;font-size:.7rem;letter-spacing:.12em;padding:5px 5px 14px}
+.visual-art{aspect-ratio:1/1.08;border-radius:21px;display:grid;place-items:center;overflow:hidden;position:relative;background:radial-gradient(circle at 50% 43%,rgba(197,243,107,.17),transparent 43%),linear-gradient(145deg,#202b20,#101511)}
+.visual-art:before,.visual-art:after{content:"";position:absolute;border:1px solid rgba(197,243,107,.23);border-radius:50%;width:77%;aspect-ratio:1}.visual-art:after{width:58%;border-style:dashed;opacity:.6}
+.monogram{font-size:clamp(7rem,15vw,10rem);font-weight:950;letter-spacing:-.13em;color:var(--lime);text-shadow:0 0 65px rgba(197,243,107,.2);z-index:1}
+.visual-bottom{display:flex;align-items:center;justify-content:space-between;padding:17px 5px 4px;gap:12px}.visual-bottom strong{display:block;font-size:1rem}.visual-bottom small{color:var(--muted)}
+.status{border:1px solid rgba(197,243,107,.25);border-radius:99px;padding:7px 10px;color:var(--lime);font-size:.68rem;white-space:nowrap}
+section{padding:104px 0}.section-heading{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:38px}
+.section-heading h2{font-size:clamp(2.4rem,5vw,4.2rem);line-height:1;letter-spacing:-.075em;margin:12px 0 0}.section-intro{max-width:390px;color:var(--muted);font-size:.94rem;margin:0 0 4px}
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.panel{background:var(--surface);border:1px solid var(--line);border-radius:25px;padding:clamp(23px,3vw,34px)}
+.about-copy{font-size:1.07rem;color:#b5c0b6;line-height:1.9;margin:0 0 15px}.about-copy strong{color:var(--text)}.about-copy:last-child{margin-bottom:0}
+.fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fact{background:var(--surface-2);border:1px solid var(--line);border-radius:18px;padding:20px}.fact b{font-size:2rem;letter-spacing:-.07em;color:var(--lime);display:block;line-height:1.2}.fact span{color:var(--muted);font-size:.78rem}
+.interest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.interest-card{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:26px;min-height:230px;position:relative;overflow:hidden;transition:transform .25s,border-color .25s}
+.interest-card:hover,.journey-card:hover,.project-card:hover{transform:translateY(-5px);border-color:rgba(197,243,107,.38)}.interest-card:after{content:"";position:absolute;width:170px;height:170px;right:-90px;bottom:-100px;border-radius:50%;background:rgba(197,243,107,.07)}
+.interest-icon{width:48px;height:48px;border-radius:15px;background:rgba(197,243,107,.1);display:grid;place-items:center;font-size:1.45rem}.interest-card h3{font-size:1.2rem;margin:30px 0 7px}
+.interest-card p,.journey-card p,.project-card p{font-size:.89rem;color:var(--muted);margin:0}
+.journey-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.journey-card{background:var(--surface);border:1px solid var(--line);border-radius:23px;padding:25px;transition:.25s}
+.journey-num{font-size:.7rem;letter-spacing:.15em;color:var(--lime);font-weight:850}.journey-card h3{font-size:1.12rem;margin:18px 0 8px}
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.project-card{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:26px;transition:.25s}
+.project-label{display:flex;justify-content:space-between;color:var(--lime);font-size:.7rem;font-weight:850;letter-spacing:.12em}.project-card h3{font-size:1.25rem;margin:24px 0 8px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:19px}.chip{font-size:.7rem;color:#bdc7bd;border:1px solid var(--line);padding:5px 10px;border-radius:99px}
+.project-hint{margin-top:18px;padding:17px 20px;border:1px dashed rgba(197,243,107,.3);border-radius:16px;color:var(--muted);font-size:.83rem}.project-hint strong{color:var(--text)}
+.contact-panel{padding:clamp(30px,5vw,58px);border-radius:30px;border:1px solid rgba(197,243,107,.23);background:radial-gradient(circle at 90% 10%,rgba(197,243,107,.1),transparent 34%),linear-gradient(130deg,#192319,#101511);display:flex;align-items:center;justify-content:space-between;gap:30px}
+.contact-panel h2{font-size:clamp(2.4rem,5vw,4rem);line-height:1;letter-spacing:-.075em;max-width:650px;margin:13px 0}.contact-panel p{color:var(--muted);max-width:560px;margin:0}
+footer{padding:32px 0 42px;color:#7f8a80;font-size:.8rem}.footer-row{border-top:1px solid var(--line);padding-top:24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.footer-links{display:flex;gap:19px}.footer-links a:hover{color:var(--lime)}.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}.reveal.show{opacity:1;transform:translateY(0)}
+@media(max-width:850px){.hero-grid{grid-template-columns:1fr .78fr;gap:35px}.interest-grid,.journey-grid{grid-template-columns:1fr 1fr}.section-heading{align-items:start;flex-direction:column}}
+@media(max-width:650px){:root{--nav-h:68px}.container{width:calc(100% - 34px)}.menu-toggle{display:block}.nav-contact{display:none}.nav-links{display:none;position:absolute;top:var(--nav-h);left:0;right:0;padding:20px 24px 24px;background:#0d120e;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:18px}.nav-links.open{display:flex}.nav-links a.active:after{display:none}
+.hero{padding:68px 0 72px}.hero-grid{grid-template-columns:1fr;gap:43px}h1{font-size:clamp(4.2rem,19vw,6.2rem)}.visual-card{justify-self:center;max-width:390px}section{padding:76px 0}.section-heading h2{font-size:2.8rem}.about-grid{grid-template-columns:1fr}.interest-grid,.journey-grid,.project-grid{grid-template-columns:1fr}.interest-card{min-height:190px}.hero-meta{gap:17px;margin-top:36px}.contact-panel{align-items:flex-start;flex-direction:column}.footer-row{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="site-header"><nav class="nav container" aria-label="Main navigation">
+<a class="logo" href="#home" aria-label="Hadhin home">hadhin<span>.</span></a>
+<button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+<div class="nav-links" id="navLinks"><a href="#about">About</a><a href="#interests">Interests</a><a href="#journey">Journey</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+<a class="nav-contact" href="#contact">Let's talk <span>↗</span></a></nav></header>
+<main>
+<section class="hero" id="home"><div class="container hero-grid"><div>
+<div class="eyebrow"><span class="pulse"></span> Computer Science student · Explorer</div>
+<h1>Hey, I'm<br><span class="accent">Hadhin.</span></h1>
+<p class="hero-lead">I’m a <strong>21-year-old BSc Computer Science student</strong> in my third year, currently navigating semester six. Curious about technology, drawn to new places, and always ready to try something delicious.</p>
+<div class="hero-actions"><a class="btn btn-primary" href="#projects">Explore my work <span>↘</span></a><a class="btn btn-outline" href="#about">Get to know me</a></div>
+<div class="hero-meta"><div class="meta-item"><b>21</b>Years young</div><div class="meta-item"><b>06</b>Current semester</div><div class="meta-item"><b>∞</b>Places to discover</div></div></div>
+<aside class="visual-card" aria-label="Hadhin monogram profile artwork"><div class="visual-top"><span>PERSONAL PROFILE / 001</span><span>✳</span></div><div class="visual-art"><span class="monogram">H.</span></div><div class="visual-bottom"><div><strong>Hadhin</strong><small>Student · Traveler · Foodie</small></div><span class="status">Always exploring</span></div></aside></div></section>
+<section id="about"><div class="container"><div class="section-heading reveal"><div><div class="section-kicker">01 / About me</div><h2>Curious by nature.<br>Learning by doing.</h2></div><p class="section-intro">A little code, a little adventure, and plenty of room for new experiences.</p></div>
+<div class="about-grid"><article class="panel reveal"><p class="about-copy">I'm <strong>Hadhin</strong>, a third-year BSc Computer Science student currently in my sixth semester. I'm building my foundation in technology, exploring what interests me, and discovering the kind of things I want to create.</p><p class="about-copy">Away from academics, I enjoy <strong>travelling</strong>, finding new places, tasting local food, and collecting memories. I like the mix of creativity, discovery, and problem-solving that each new experience brings.</p></article>
+<div class="fact-grid reveal"><div class="fact"><b>03</b><span>Year of BSc CS</span></div><div class="fact"><b>06</b><span>Semester</span></div><div class="fact"><b>21</b><span>Age</span></div><div class="fact"><b>∞</b><span>Things to learn</span></div></div></div></div></section>
+<section id="interests"><div class="container"><div class="section-heading reveal"><div><div class="section-kicker">02 / Beyond the screen</div><h2>Things I’m into.</h2></div><p class="section-intro">The interests that keep me inspired, curious, and ready for whatever comes next.</p></div>
+<div class="interest-grid"><article class="interest-card reveal"><div class="interest-icon">⌘</div><h3>Technology</h3><p>Learning computer science, exploring new concepts, and working towards building useful digital experiences.</p></article><article class="interest-card reveal"><div class="interest-icon">✈</div><h3>Travelling</h3><p>Discovering unfamiliar places, enjoying different cultures, and collecting stories along the way.</p></article><article class="interest-card reveal"><div class="interest-icon">♨</div><h3>Foodie life</h3><p>Trying new dishes, finding local favourites, and believing every good trip needs a food adventure.</p></article></div></div></section>
+<section id="journey"><div class="container"><div class="section-heading reveal"><div><div class="section-kicker">03 / The journey</div><h2>One step at a time.</h2></div><p class="section-intro">I’m still learning, experimenting, and figuring out where my curiosity will take me.</p></div>
+<div class="journey-grid"><article class="journey-card reveal"><div class="journey-num">01 — EDUCATION</div><h3>BSc Computer Science</h3><p>Pursuing my undergraduate degree and growing my understanding of computing and technology.</p></article><article class="journey-card reveal"><div class="journey-num">02 — CURRENT CHAPTER</div><h3>Year 3 · Semester 6</h3><p>Strengthening my knowledge, exploring areas of interest, and preparing for what comes after graduation.</p></article><article class="journey-card reveal"><div class="journey-num">03 — WHAT'S NEXT</div><h3>Learn. Build. Explore.</h3><p>Looking forward to creating meaningful projects, finding opportunities, and seeing more of the world.</p></article></div></div></section>
+<section id="projects"><div class="container"><div class="section-heading reveal"><div><div class="section-kicker">04 / Selected work</div><h2>Projects & experiments.</h2></div><p class="section-intro">A growing collection of things I’ve made, learned, and explored.</p></div>
+<div class="project-grid"><article class="project-card reveal"><div class="project-label"><span>PROJECT 01</span><span>↗</span></div><h3>Your college project</h3><p>Add a short explanation of the problem, your solution, and the part you worked on. Replace this sample with a real project.</p><div class="chips"><span class="chip">Your tech stack</span><span class="chip">Academic</span></div></article><article class="project-card reveal"><div class="project-label"><span>PROJECT 02</span><span>↗</span></div><h3>Your personal build</h3><p>Show a personal experiment, mini-project, or idea you’re bringing to life. Add a live demo or source-code link when available.</p><div class="chips"><span class="chip">Your technologies</span><span class="chip">Personal</span></div></article></div>
+<div class="project-hint reveal"><strong>Quick portfolio tip:</strong> Replace the sample project cards with your real work before sharing this portfolio with recruiters.</div></div></section>
+<section id="contact"><div class="container"><div class="contact-panel reveal"><div><div class="section-kicker">05 / Say hello</div><h2>Let’s connect and create something good.</h2><p>Have an interesting idea, opportunity, or travel recommendation? I’d be happy to hear from you.</p></div><a class="btn btn-primary" href="mailto:your.email@example.com">Email me <span>↗</span></a></div></div></section>
+</main>
+<footer><div class="container footer-row"><span>© <span id="year"></span> Hadhin. Made with curiosity <span style="color:var(--lime)">✳</span></span><div class="footer-links"><a href="#home">Back to top ↑</a><a href="#" aria-label="Add your GitHub profile URL">GitHub</a><a href="#" aria-label="Add your LinkedIn profile URL">LinkedIn</a></div></div></footer>
+<script>
+const menuToggle=document.getElementById('menuToggle');const navLinks=document.getElementById('navLinks');const links=[...navLinks.querySelectorAll('a')];
+menuToggle.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(isOpen));menuToggle.textContent=isOpen?'✕':'☰';});
+links.forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.textContent='☰';}));
+document.getElementById('year').textContent=new Date().getFullYear();
+const sections=[...document.querySelectorAll('main section[id]')];const sectionObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;links.forEach(link=>link.classList.toggle('active',link.getAttribute('href')===`#${entry.target.id}`));});},{rootMargin:'-35% 0px -55% 0px'});sections.forEach(section=>sectionObserver.observe(section));
+const revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('show');revealObserver.unobserve(entry.target);}});},{threshold:.12});document.querySelectorAll('.reveal').forEach(element=>revealObserver.observe(element));
+</script>
+</body></html>
